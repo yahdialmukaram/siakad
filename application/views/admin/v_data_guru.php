@@ -196,25 +196,12 @@
 				"url":"<?=base_url();?>c_admin/getGuru",
 				"type":"POST"
 			},
-			// "colomDefs":[
-			// 	{
-			// 		"targets":[0],
-			// 		"orderable": false,
-			// 	},
-			// ],
-
-			// Tambahkan bagian ini:
-			"columns": [
-                                // Membuat nomor pada datatable (bukan ID user)
-				{data: 'DT_Row_Index', name:'DT_Row_Index' },
-                                // ID user
-				{data: 'id_guru', name: 'id_guru' },
-                                // nama user
-				{data: 'nama_guru', name: 'nama_guru' },
-                                // posisi user
-				{data: 'jenis', name: 'posisi'},
+			"colomDefs":[
+				{
+					"targets":[0],
+					"orderable": false,
+				},
 			],
-
 			// "colomDefs" : [ {
             //         "data" : "id_guru"
             //     }, {
@@ -236,35 +223,3 @@
 
 
 </script>
-
-<!-- <script type="text/javascript">
-    var table;
-    $(document).ready(function() {
- 
-        //datatables
-        table = $('#datatable').DataTable({ 
- 
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             
-            "ajax": {
-                "url": "<?php echo site_url('c_admin/getGuru')?>",
-                "type": "POST"
-            },
- 
-             
-            "columnDefs": [
-            { 
-                "targets": [ 0 ], 
-                "orderable": false, 
-            },
-            ],
- 
-        });
- 
-    });
- 
-</script> -->
-
-
