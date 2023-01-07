@@ -188,34 +188,35 @@ public function __construct()
 		$this->load->view('admin/v_data_guru');
 		$this->load->view('admin/footer');
 	}
-	public function getGuru()
-	{
-		$list = $this->model_guru->get_datatables();
-		$data =[];
-		$no = $_POST['start'];
-		foreach ($list as $value) {
-			$no++;
-			$row=[];
-			$row[] = $no;
-			$row[] = $value->nama_guru;
-			$row[] = $value->alamat_guru;
-			$row[] = $value->tgl_lahir_guru;
-			$row[] = $value->jenis_kelamin_guru;
-			$row[] = '<a href="<?=base_url();?>c_admin'.$value->id_guru.'" class="btn btn-warning fa fa-edit"> Edit </a>
-			<a href="<?=base_url();?>c_admin'.$value->id_guru.'" class="btn btn-danger fa fa-trash"> Delete </a>';
-
-			$data[] =$row;
-
-			$output = [
-				"draw" => $_POST['draw'],
-				"recordsTotal" => $this->model_guru->count_all(),
-				"recordsFiltered" => $this->model_guru->count_filtered(),
-				"data" => $data,
-			];
-			//output dalam format JSON
-			echo json_encode($output);
-		}
-	}
+	function getGuru()
+    {
+        $list = $this->model_guru->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $field->nama_guru;
+            $row[] = $field->alamat_guru;
+            $row[] = $field->tgl_lahir_guru;
+            $row[] = $field->jenis_kelamin_guru;
+			$row[] =  '<a class="btn btn-success btn-sm"><i class="fa fa-edit"></i> </a>
+            <a class="btn btn-danger btn-sm "><i class="fa fa-trash"></i> </a>';	
+			
+            $data[] = $row;
+        }
+ 
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->model_guru->count_all(),
+            "recordsFiltered" => $this->model_guru->count_filtered(),
+            "data" => $data,
+        );
+        //output dalam format JSON
+        echo json_encode($output);
+    }
+	
 
 
 }

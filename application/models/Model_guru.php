@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Model_guru extends CI_Model {
 
 	var $table = 'tb_guru';
-	var $column_order = [null,'nama_guru','alamat_guru','tgl_lahir_guru','jenis_kelamin_guru'];
-	var $column_search = ['nama_guru','alamat_guru','tgl_lahir_guru','jenis_kelamin_guru'];
-	var $order = ['id_guru'=> 'asc'];
+	var $column_order = array(null,'nama_guru','alamat_guru','tgl_lahir_guru','jenis_kelamin_guru');
+	var $column_search = array('nama_guru','alamat_guru','tgl_lahir_guru','jenis_kelamin_guru');
+	var $order = array('id_guru'=> 'asc');
 	
 	public function __construct()
 	{
@@ -21,7 +21,7 @@ class Model_guru extends CI_Model {
  
         $i = 0;
      
-        foreach ($this->column_search as $item) // looping awal
+		foreach ($this->column_search as $item) // looping awal
         {
             if($_POST['search']['value']) // jika datatable mengirimkan pencarian dengan metode POST
             {
@@ -74,10 +74,7 @@ class Model_guru extends CI_Model {
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
-	
-
-	
-
+ 
 }
 
 /* End of file ModelName.php */

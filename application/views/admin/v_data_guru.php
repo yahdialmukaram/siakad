@@ -66,12 +66,6 @@
 							</tbody>
 							<tfoot>
 								<tr>
-									<!-- <th>no</th>
-									<th>nama guru</th>
-									<th>alamat </th>
-									<th>tgl lahir</th>
-									<th>jenis kelamin</th>
-									<th>jenis kelamin</th> -->
 									<th></th>
 									<th></th>
 									<th></th>
@@ -196,7 +190,7 @@
 				"url":"<?=base_url();?>c_admin/getGuru",
 				"type":"POST"
 			},
-			"colomDefs":[
+			'colomDefs':[
 				{
 					"targets":[0],
 					"orderable": false,
@@ -217,9 +211,6 @@
 
 		})
 	  })
-
-
-
 
 
 </script>
